@@ -13,64 +13,65 @@
     />
   </head>
   <body>
-    <div class="page-container translucent-outer-box"></div>
-    <div class="login-card">
-      <div class="logo">
-        <!-- <img src="../img/Picture3.png" alt="QKlinik Logo" class="logo"> -->
-        <h1 class="site-title">QKlinik</h1>
-      </div>
-      <div class="subtitle">Login or signup below</div>
-
-      <form>
-        <div class="form-group">
-          <label for="email">
-            Email
-            <a href="#">Forgot password?</a>
-          </label>
-          <input
-            type="email"
-            id="email"
-            placeholder="you@example.com"
-            required
-          />
+    <div class="page-container translucent-outer-box">
+      <div class="login-card">
+        <div class="logo">
+          <!-- <img src="../img/Picture3.png" alt="QKlinik Logo" class="logo"> -->
+          <h1 class="site-title">QKlinik</h1>
         </div>
-        <!-- Note: Submit button is often hidden or replaces social buttons depending on state -->
-      </form>
+        <div class="subtitle">Login or signup below</div>
 
-      <div class="social-login">
-        <button class="social-btn" title="Apple">
-          <i class="bxl bx-apple" style="color: #000000" xl></i>
-        </button>
+        <form>
+          <div class="form-group">
+            <label for="email">
+              Email
+              <a href="#">Forgot password?</a>
+            </label>
+            <input
+              type="email"
+              id="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+          <!-- Note: Submit button is often hidden or replaces social buttons depending on state -->
+        </form>
 
-        <!-- Google Sign-In -->
-        <div
-          id="g_id_onload"
-          data-client_id="YOUR_GOOGLE_CLIENT_ID"
-          data-login_uri="https://your.domain/your_login_endpoint"
-          data-auto_prompt="false"
-        ></div>
-        <div
-          class="g_id_signin"
-          data-type="icon"
-          data-size="large"
-          data-shape="rectangle"
-          data-logo_alignment="left"
-        ></div>
+        <div class="social-login">
+          <button class="social-btn" title="Apple">
+            <i class="bxl bx-apple" style="color: #000000" xl></i>
+          </button>
 
-        <!-- Microsoft Sign-In -->
-        <button class="ms-login-icon" onclick="microsoftLogin()">
-          <img
-            src="../img/mslogo.png"
-            alt="Microsoft Icon"
-            width="21"
-            height="21"
-          />
-        </button>
-      </div>
+          <!-- Google Sign-In -->
+          <div
+            id="g_id_onload"
+            data-client_id="YOUR_GOOGLE_CLIENT_ID"
+            data-login_uri="https://your.domain/your_login_endpoint"
+            data-auto_prompt="false"
+          ></div>
+          <div
+            class="g_id_signin"
+            data-type="icon"
+            data-size="large"
+            data-shape="rectangle"
+            data-logo_alignment="left"
+          ></div>
 
-      <div class="footer-links">
-        <a href="#">Terms of Service</a>
-        <a href="#">Privacy Policy</a>
+          <!-- Microsoft Sign-In -->
+          <button class="ms-login-icon" onclick="microsoftLogin()">
+            <img
+              src="../img/mslogo.png"
+              alt="Microsoft Icon"
+              width="21"
+              height="21"
+            />
+          </button>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Terms of Service</a>
+          <a href="#">Privacy Policy</a>
+        </div>
       </div>
     </div>
   </body>

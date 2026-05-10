@@ -35,20 +35,26 @@ body {
 }
 
 .translucent-outer-box {
+  display: flex;
   text-align: center;
-  height: 550px;
-  width: 500px;
+  height: 540px;
+  width: 459px;
   background-color: rgba(255, 255, 255, 0.2);
   padding: 18px;
   border-radius: 25px;
   border: 1.5px dashed rgba(255, 255, 255, 0.3);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
-  opacity: 0.7;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .login-card {
-  background: var(--card-bg);
+  background-color: white;
+  opacity: 100;
   position: relative;
   padding: 2.5rem;
   border-radius: 1.5rem;
