@@ -81,6 +81,17 @@
   }
 }
 
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Page-specific animations */
 .page-about main {
   animation: slideInFromRight 0.6s ease-out;
@@ -135,7 +146,9 @@ main > section {
   background-color: transparent;
   transition:
     background-color 0.8s ease,
-    box-shadow 0.8s ease;
+    box-shadow 0.8s ease,
+    color 0.8s ease;
+  animation: slideInDown 0.8s ease-out both;
   display: flex;
   align-items: center;
 }
@@ -208,6 +221,7 @@ main > section {
   font-weight: 700;
   margin: 0;
   color: white;
+  transition: color 0.8s ease;
 }
 
 .site-title-link {
@@ -238,7 +252,7 @@ main > section {
   text-decoration: none;
   padding: 0.4rem 0;
   border-radius: 0;
-  transition: color 0.2s ease;
+  transition: color 0.8s ease;
 }
 
 .main-nav a::after {
@@ -257,12 +271,12 @@ main > section {
   width: 100%;
 }
 
-.site-header.scrolled .main-nav a {
+.site-header.is-scrolled .main-nav a {
   color: #1f2937;
 }
 
-.site-header.scrolled .main-nav a:hover::after,
-.site-header.scrolled .main-nav a.active::after {
+.site-header.is-scrolled .main-nav a:hover::after,
+.site-header.is-scrolled .main-nav a.active::after {
   width: 100%;
 }
 
@@ -340,10 +354,12 @@ main > section {
 
 .button {
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   text-decoration: underline;
-  text-decoration-color: white;
+  text-decoration-color: currentColor;
   text-underline-offset: 6px;
   text-decoration-thickness: 2px;
   border-radius: 999px;
@@ -357,17 +373,16 @@ main > section {
 
 .button.primary {
   cursor: pointer;
-  font-family: Helvetica, "sans-serif";
+  font-family: Helvetica, Arial, sans-serif;
   padding: 10px 20px;
-  display: inline-flex;
-  align-items: center;
   font-size: 15px;
+  font-weight: 700;
 }
 
 .hero-actions a {
   color: white;
   text-decoration: underline;
-  text-decoration-color: white;
+  text-decoration-color: currentColor;
   text-underline-offset: 6px;
 }
 
@@ -383,12 +398,15 @@ main > section {
 }
 
 .button > svg {
-  width: 28px;
-  height: 28px;
-  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
   transition: transform 0.3s ease-in-out;
   stroke: currentColor;
-  fill: currentColor;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 
 .button:hover svg {
@@ -403,6 +421,9 @@ main > section {
 
 .button.secondary {
   cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
   background: transparent;
   color: white;
 }
@@ -933,13 +954,3 @@ main > section {
   }
 }
 
-@keyframes slideInDownInstant {
-  0% {
-    transform: translateY(-10px);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
