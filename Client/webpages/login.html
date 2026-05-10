@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - QKlinik</title>
+    <link rel="stylesheet" href="../designs/Login.css" />
+
+    <!-- brand icon -->
+    <link
+      href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="login-card">
+      <div class="logo">
+        <!-- <img src="../img/Picture3.png" alt="QKlinik Logo" class="logo"> -->
+        <h1 class="site-title">QKlinik</h1>
+      </div>
+      <div class="subtitle">Login or signup below</div>
+
+      <form>
+        <div class="form-group">
+          <label for="email">
+            Email
+            <a href="#">Forgot password?</a>
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="you@example.com"
+            required
+          />
+        </div>
+        <!-- Note: Submit button is often hidden or replaces social buttons depending on state -->
+      </form>
+
+      <div class="social-login">
+        <button class="social-btn" title="Apple">
+          <i class="bxl bx-apple" style="color: #000000" xl></i>
+        </button>
+
+        <!-- Google Sign-In -->
+        <div
+          id="g_id_onload"
+          data-client_id="YOUR_GOOGLE_CLIENT_ID"
+          data-login_uri="https://your.domain/your_login_endpoint"
+          data-auto_prompt="false"
+        ></div>
+        <div
+          class="g_id_signin"
+          data-type="icon"
+          data-size="large"
+          data-shape="rectangle"
+          data-logo_alignment="left"
+        ></div>
+
+        <!-- Microsoft Sign-In -->
+        <button class="ms-login-icon" onclick="microsoftLogin()">
+          <img
+            src="../img/mslogo.png"
+            alt="Microsoft Icon"
+            width="21"
+            height="21"
+          />
+        </button>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </body>
+  <script src="../scripts/loginscripts.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async></script>
+</html>
