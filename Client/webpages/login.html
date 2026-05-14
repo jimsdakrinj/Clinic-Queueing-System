@@ -41,9 +41,15 @@
               required
             />
           </div>
-          <!-- Note: Submit button is often hidden or replaces social buttons depending on state -->
+          <button type="submit" class="continue-btn">Continue</button>
         </form>
 
+        <div class="google-signin-text">Or continue with</div>
+
+        <div class="social-login">
+          <button type="button" class="social-btn" aria-label="Sign in with Apple">
+            <i class="bxl bx-apple" aria-hidden="true"></i>
+          </button>
 
           <!-- Google Sign-In -->
           <div
@@ -54,11 +60,24 @@
           ></div>
           <div
             class="g_id_signin"
-            data-type="icon"
+            data-type="standard"
             data-size="large"
             data-shape="rectangle"
             data-logo_alignment="left"
           ></div>
+
+          <button
+            type="button"
+            class="social-btn microsoft-btn"
+            aria-label="Sign in with Microsoft"
+          >
+            <span class="microsoft-logo" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
         </div>
 
         <div class="footer-links">
@@ -67,7 +86,8 @@
         </div>
       </div>
     </div>
+
+    <script src="../scripts/loginscripts.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
   </body>
-  <script src="../scripts/loginscripts.js"></script>
-  <script src="https://accounts.google.com/gsi/client" async></script>
 </html>

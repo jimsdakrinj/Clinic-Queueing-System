@@ -20,54 +20,42 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   display: grid;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  place-items: center;
+  min-height: 100vh;
   margin: 0;
 }
 
 .page-container {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1.5rem;
 }
 
 .translucent-outer-box {
   display: flex;
-  text-align: center;
-  height: 540px;
-  width: 459px;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 18px;
-  border-radius: 25px;
-  border: 1.5px dashed rgba(255, 255, 255, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+  width: min(470px, calc(100vw - 2rem));
+  background-color: rgba(255, 255, 255, 0.22);
+  padding: 24px;
+  border-radius: 28px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.35);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(14px);
   justify-content: center;
   align-items: center;
-
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
 }
 
 .login-card {
   background-color: white;
-  opacity: 100;
-  position: relative;
-  padding: 2.5rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-  width: min(400px, calc(100vw - 68px));
-  max-width: 100%;
+  padding: 2.25rem;
+  border-radius: 1.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 420px;
   text-align: center;
-  z-index: 1;
-}
-
-.translucent-outer-box,
-.login-card {
-  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
 }
 .logo {
   font-size: 2rem;
@@ -118,15 +106,44 @@ input:focus {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
+.continue-btn {
+  width: 100%;
+  padding: 0.95rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: var(--text-main);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.continue-btn:hover {
+  background-color: #1f2937;
+}
+
+.google-signin-text {
+  margin-top: 1.75rem;
+  color: var(--text-subtle);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
 .social-login {
   display: flex;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .social-btn {
-  flex: 1;
-  padding: 0.5rem;
+  width: 48px;
+  min-width: 48px;
+  height: 40px;
+  padding: 0;
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
   background: white;
@@ -137,31 +154,53 @@ input:focus {
   transition: background 0.2s;
 }
 
+.social-btn i {
+  color: #000;
+  font-size: 1.5rem;
+}
+
 .g_id_signin {
+  flex: 1;
   justify-content: center;
+  min-width: 0;
   transition: background 0.2s;
 }
 
-.ms-login-icon {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #8c8c8c; /* Standard gray border */
-  background-color: #fff;
-  cursor: pointer;
+.microsoft-logo {
+  display: grid;
+  grid-template-columns: repeat(2, 10px);
+  gap: 2px;
 }
 
-.ms-login-icon:hover {
-  background-color: #f2f2f2;
+.microsoft-logo span {
+  width: 10px;
+  height: 10px;
+}
+
+.microsoft-logo span:nth-child(1) {
+  background: #f25022;
+}
+
+.microsoft-logo span:nth-child(2) {
+  background: #7fba00;
+}
+
+.microsoft-logo span:nth-child(3) {
+  background: #00a4ef;
+}
+
+.microsoft-logo span:nth-child(4) {
+  background: #ffb900;
 }
 
 .social-btn:hover {
-  background: #f3f4f6;
+  background-color: #f2f2f2;
 }
 
 .footer-links {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   font-size: 0.75rem;
 }
 
