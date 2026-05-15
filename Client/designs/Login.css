@@ -15,7 +15,7 @@
 body {
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-image: url(../img/loginBG.jpg);
+  background-image: url(../img/Group\ 2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  min-width: 600px;
   padding: 1.5rem;
 }
 
@@ -52,7 +52,7 @@ body {
   border-radius: 1.75rem;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
   width: 100%;
-  max-width: 420px;
+  max-width: 550px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -61,6 +61,16 @@ body {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
+}
+
+img.logopicture {
+  margin-top: 50px;
+  width: 150px;
+  height: auto;
+}
+
+.site-title {
+  margin-top: 0.2rem;
 }
 
 .subtitle {
@@ -79,7 +89,8 @@ label {
   justify-content: space-between;
   font-size: 0.875rem;
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  margin-top: 10px;
+  margin-bottom: 8px;
 }
 
 label a {
@@ -110,6 +121,7 @@ input:focus {
   width: 100%;
   padding: 0.95rem;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   border: none;
   border-radius: 0.75rem;
   background-color: var(--text-main);
@@ -134,19 +146,20 @@ input:focus {
 .social-login {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 16px;
   margin-top: 1rem;
   width: 100%;
 }
 
 .social-btn {
-  width: 48px;
+  width: 130px;
   min-width: 48px;
   height: 40px;
   padding: 0;
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
-  background: white;
+  background: #EEEEEE;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -154,16 +167,21 @@ input:focus {
   transition: background 0.2s;
 }
 
-.social-btn i {
-  color: #000;
-  font-size: 1.5rem;
+.social-logo {
+  display: block;
+  width: 23px;
+  height: 23px;
 }
 
-.g_id_signin {
-  flex: 1;
-  justify-content: center;
-  min-width: 0;
-  transition: background 0.2s;
+.apple-logo {
+  width: 25px;
+  height: 25px;
+  fill: #000;
+}
+
+.google-logo {
+  width: 22px;
+  height: 22px;
 }
 
 .microsoft-logo {
