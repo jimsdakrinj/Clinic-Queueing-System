@@ -1,0 +1,195 @@
+.PatientHeader {
+  height: auto;
+  min-height: 86px;
+  padding: 1.25rem 2rem;
+}
+
+.PatientHeader h1 {
+  color: var(--text-main);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.PatientHeader p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.BackLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.BackLink i {
+  width: 18px;
+  height: 18px;
+}
+
+.PatientForm {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 1040px;
+}
+
+.FormSection {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.FormSectionHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+}
+
+.FormSectionHeader i {
+  width: 22px;
+  height: 22px;
+  color: var(--primary);
+  flex: 0 0 auto;
+}
+
+.FormSectionHeader h2 {
+  color: var(--text-main);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.FormSectionHeader p {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  margin-top: 0.15rem;
+}
+
+.FormGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.FormField {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.FormField.span-2 {
+  grid-column: span 2;
+}
+
+.FormField label {
+  color: var(--text-main);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.FormField input,
+.FormField select,
+.FormField textarea {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: var(--text-main);
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 0.8rem 0.9rem;
+  transition: var(--transition);
+}
+
+.FormField textarea {
+  resize: vertical;
+}
+
+.FormField input:focus,
+.FormField select:focus,
+.FormField textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+  outline: none;
+}
+
+.FormActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.PrimaryButton,
+.SecondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  transition: var(--transition);
+}
+
+.PrimaryButton {
+  border: none;
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.PrimaryButton:hover {
+  background-color: #115e59;
+}
+
+.SecondaryButton {
+  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+  color: var(--text-main);
+}
+
+.SecondaryButton:hover {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+.PrimaryButton i,
+.SecondaryButton i {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  .PatientHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 92px;
+    padding: 1rem;
+  }
+
+  .FormGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .FormField.span-2 {
+    grid-column: span 1;
+  }
+
+  .FormActions {
+    flex-direction: column-reverse;
+  }
+
+  .PrimaryButton,
+  .SecondaryButton {
+    width: 100%;
+  }
+}

@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Patient | QKlinik</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../designs/dashboard.css" />
+    <link rel="stylesheet" href="../designs/add-patient.css" />
+  </head>
+  <body>
+    <div class="DashboardLayout">
+      <aside class="DashboardSidebar">
+        <div class="SidebarHeader">
+          <div class="Logo">
+            <i data-lucide="activity" class="LogoIcon"></i>
+            <h1>QKlinik</h1>
+          </div>
+        </div>
+
+        <div class="AccountInfo">
+          <img
+            src="https://avatar.iran.liara.run/public/doctor"
+            alt="Dr. Alex Smith"
+            class="Avatar"
+          />
+          <div class="UserMeta">
+            <span class="UserName">Dr. Alex Smith</span>
+            <span class="UserRole">Administrator</span>
+          </div>
+        </div>
+
+        <nav class="DashboardMenu">
+          <a href="add-patient.html" class="AddPatientButton active">
+            <i data-lucide="user-plus"></i> Add New Patient
+          </a>
+          <a href="dashboard.html#dashboard" class="MenuLink">
+            <i data-lucide="layout-dashboard"></i> Dashboard
+          </a>
+          <a href="patientinfo.html" class="MenuLink">
+            <i data-lucide="users"></i> Patients
+          </a>
+          <a href="dashboard.html#appointments" class="MenuLink">
+            <i data-lucide="calendar"></i> Queue Management
+          </a>
+          <a href="presciptions.html" class="MenuLink">
+            <i data-lucide="pill"></i> Prescriptions
+          </a>
+          <a href="dashboardsettings.html" class="MenuLink">
+            <i data-lucide="settings"></i> Settings
+          </a>
+        </nav>
+      </aside>
+
+      <div class="MainContainer">
+        <header class="DashboardHeader PatientHeader">
+          <div>
+            <h1>Patient Registration</h1>
+            <p>Add a new patient profile for queueing and clinic records.</p>
+          </div>
+          <a href="dashboard.html" class="BackLink">
+            <i data-lucide="arrow-left"></i> Back to Dashboard
+          </a>
+        </header>
+
+        <main class="DashboardContent">
+          <form class="PatientForm" action="#" method="post">
+            <section class="FormSection">
+              <div class="FormSectionHeader">
+                <i data-lucide="user-round"></i>
+                <div>
+                  <h2>Personal Information</h2>
+                  <p>Basic identifying details for the patient record.</p>
+                </div>
+              </div>
+
+              <div class="FormGrid">
+                <div class="FormField span-2">
+                  <label for="patient-name">Patient Name</label>
+                  <input
+                    type="text"
+                    id="patient-name"
+                    name="patient_name"
+                    placeholder="Full name"
+                    required
+                  />
+                </div>
+
+                <div class="FormField">
+                  <label for="dob">Date of Birth</label>
+                  <input type="date" id="dob" name="dob" required />
+                </div>
+
+                <div class="FormField">
+                  <label for="age">Age</label>
+                  <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    min="0"
+                    max="130"
+                    placeholder="Age"
+                    required
+                  />
+                </div>
+
+                <div class="FormField">
+                  <label for="sex">Sex</label>
+                  <select id="sex" name="sex" required>
+                    <option value="">Select sex</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="FormField">
+                  <label for="marital-status">Marital Status</label>
+                  <select id="marital-status" name="marital_status">
+                    <option value="">Select status</option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="widowed">Widowed</option>
+                    <option value="separated">Separated</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <section class="FormSection">
+              <div class="FormSectionHeader">
+                <i data-lucide="phone"></i>
+                <div>
+                  <h2>Contact Details</h2>
+                  <p>Use current contact information for reminders and updates.</p>
+                </div>
+              </div>
+
+              <div class="FormGrid">
+                <div class="FormField">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="09XX XXX XXXX"
+                    required
+                  />
+                </div>
+
+                <div class="FormField">
+                  <label for="email">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="patient@example.com"
+                  />
+                </div>
+              </div>
+            </section>
+
+            <section class="FormSection">
+              <div class="FormSectionHeader">
+                <i data-lucide="map-pin"></i>
+                <div>
+                  <h2>Address</h2>
+                  <p>Complete residential address for patient records.</p>
+                </div>
+              </div>
+
+              <div class="FormGrid">
+                <div class="FormField span-2">
+                  <label for="address">Address</label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="House number, street, subdivision"
+                    required
+                  />
+                </div>
+
+                <div class="FormField">
+                  <label for="barangay">Barangay</label>
+                  <input
+                    type="text"
+                    id="barangay"
+                    name="barangay"
+                    placeholder="Barangay"
+                    required
+                  />
+                </div>
+
+                <div class="FormField">
+                  <label for="city">City</label>
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    placeholder="City"
+                    required
+                  />
+                </div>
+
+                <div class="FormField">
+                  <label for="province">Province</label>
+                  <input
+                    type="text"
+                    id="province"
+                    name="province"
+                    placeholder="Province"
+                    required
+                  />
+                </div>
+
+                <div class="FormField">
+                  <label for="zip-code">Zip Code</label>
+                  <input
+                    type="text"
+                    id="zip-code"
+                    name="zip_code"
+                    inputmode="numeric"
+                    placeholder="Zip code"
+                    required
+                  />
+                </div>
+              </div>
+            </section>
+
+            <section class="FormSection">
+              <div class="FormSectionHeader">
+                <i data-lucide="clipboard-list"></i>
+                <div>
+                  <h2>Additional Details</h2>
+                  <p>Optional notes for queueing, consultation, or follow-up.</p>
+                </div>
+              </div>
+
+              <div class="FormGrid">
+                <div class="FormField">
+                  <label for="patient-type">Patient Type</label>
+                  <select id="patient-type" name="patient_type">
+                    <option value="">Select type</option>
+                    <option value="new">New Patient</option>
+                    <option value="returning">Returning Patient</option>
+                    <option value="priority">Priority Patient</option>
+                  </select>
+                </div>
+
+                <div class="FormField">
+                  <label for="emergency-contact">Emergency Contact</label>
+                  <input
+                    type="text"
+                    id="emergency-contact"
+                    name="emergency_contact"
+                    placeholder="Name and phone number"
+                  />
+                </div>
+
+                <div class="FormField span-2">
+                  <label for="notes">Notes</label>
+                  <textarea
+                    id="notes"
+                    name="notes"
+                    rows="4"
+                    placeholder="Allergies, concerns, or other reminders"
+                  ></textarea>
+                </div>
+              </div>
+            </section>
+
+            <div class="FormActions">
+              <button type="reset" class="SecondaryButton">Clear Form</button>
+              <button type="submit" class="PrimaryButton">
+                <i data-lucide="save"></i> Save Patient
+              </button>
+            </div>
+          </form>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+
+      const dobInput = document.querySelector("#dob");
+      const ageInput = document.querySelector("#age");
+
+      dobInput?.addEventListener("change", () => {
+        const birthDate = new Date(dobInput.value);
+        const today = new Date();
+
+        if (Number.isNaN(birthDate.getTime())) return;
+
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+        const dayDifference = today.getDate() - birthDate.getDate();
+
+        if (
+          monthDifference < 0 ||
+          (monthDifference === 0 && dayDifference < 0)
+        ) {
+          age -= 1;
+        }
+
+        ageInput.value = Math.max(age, 0);
+      });
+    </script>
+  </body>
+</html>

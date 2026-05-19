@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QKlinik Admin Dashboard</title>
+    <!-- Semantic Lucide Icons for professional dashboard visuals -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../designs/dashboard.css" />
+  </head>
+  <body>
+    <!-- Layout Wrapper -->
+    <div class="DashboardLayout">
+      <!-- Sidebar Navigation -->
+      <aside class="DashboardSidebar">
+        <div class="SidebarHeader">
+          <div class="Logo">
+            <i data-lucide="activity" class="LogoIcon"></i>
+            <h1>QKlinik</h1>
+          </div>
+        </div>
+
+        <!-- Account Profile Info -->
+        <div class="AccountInfo">
+          <img
+            src="https://avatar.iran.liara.run/public/doctor"
+            alt="Dr. Alex Smith"
+            class="Avatar"
+          />
+          <div class="UserMeta">
+            <span class="UserName">Dr. Alex Smith</span>
+            <span class="UserRole">Administrator</span>
+          </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="DashboardMenu">
+          <a href="add-patient.html" class="AddPatientButton">
+            <i data-lucide="user-plus"></i> Add New Patient
+          </a>
+          <a href="#dashboard" class="MenuLink active">
+            <i data-lucide="layout-dashboard"></i> Dashboard
+          </a>
+          <a href="#patients" class="MenuLink">
+            <i data-lucide="users"></i> Patients
+          </a>
+          <a href="#appointments" class="MenuLink">
+            <i data-lucide="calendar"></i> Queue Management
+          </a>
+          <a href="#prescriptions" class="MenuLink">
+            <i data-lucide="pill"></i> Prescriptions
+          </a>
+          <a href="#settings" class="MenuLink">
+            <i data-lucide="settings"></i> Settings
+          </a>
+        </nav>
+
+        <!-- Sidebar Footer -->
+      </aside>
+
+      <!-- Main Content Area Container -->
+      <div class="MainContainer">
+        <!-- Top Header for Notifications/Search -->
+        <header class="DashboardHeader">
+          <div class="HeaderSearch">
+            <i data-lucide="search"></i>
+            <input type="search" placeholder="Search patients, records..." />
+          </div>
+          <div class="HeaderActions">
+            <button class="IconButton" aria-label="Notifications">
+              <i data-lucide="bell"></i>
+            </button>
+          </div>
+        </header>
+
+        <!-- Main Dashboard View Content -->
+        <main class="DashboardContent">
+          <section class="WelcomeSection">
+            <h1>Dashboard</h1>
+            <p>
+              Welcome back! Here is the updated information about your clinic
+              today.
+            </p>
+          </section>
+
+          <!-- Quick Stats Grid Example -->
+          <div class="StatsGrid">
+            <div class="StatCard">
+              <div class="StatIcon appointments-icon">
+                <i data-lucide="calendar-check"></i>
+              </div>
+              <div class="StatData">
+                <h3>Total Patients</h3>
+                <p class="StatValue">24</p>
+                <span class="StatTrend up">Today</span>
+              </div>
+            </div>
+            <div class="StatCard">
+              <div class="StatIcon patients-icon">
+                <i data-lucide="user-plus"></i>
+              </div>
+              <div class="StatData">
+                <h3>New Patients</h3>
+                <p class="StatValue">12</p>
+                <span class="StatTrend up">+4% this week</span>
+              </div>
+            </div>
+            <div class="StatCard">
+              <div class="StatIcon operations-icon">
+                <i data-lucide="clock"></i>
+              </div>
+              <div class="StatData">
+                <h3>Currently Waiting</h3>
+                <p class="StatValue">5</p>
+                <span class="StatTrend neutral">Requires action</span>
+              </div>
+            </div>
+            <div class="CompletedToday">
+              <div class="MiniCardIcon completed-icon">
+                <i data-lucide="check-check"></i>
+              </div>
+              <div>
+                <h3>Completed Today</h3>
+                <p class="StatValue">19</p>
+                <span class="StatTrend up">+6 from yesterday</span>
+              </div>
+            </div>
+
+            <div class="WaitingPatients">
+              <div class="MiniCardIcon warning-icon">
+                <i data-lucide="hourglass"></i>
+              </div>
+              <div>
+                <h3>Waiting Patients</h3>
+                <p class="StatValue">5</p>
+                <span class="StatTrend neutral">Avg wait 18 min</span>
+              </div>
+            </div>
+            <div class="servingCard">
+              <div class="MiniCardTop">
+                <div class="MiniCardIcon serving-icon">
+                  <i data-lucide="stethoscope"></i>
+                </div>
+                <span class="LiveBadge">Live</span>
+              </div>
+              <span class="MiniLabel">Now Serving</span>
+              <strong class="TicketNumber">A01</strong>
+              <p>Maria Santos</p>
+              <span class="StatTrend up">Room 2</span>
+            </div>
+
+            <div class="GenderDistribution">
+              <div class="SectionHeader compact">
+                <div>
+                  <h2>Patient By Gender</h2>
+                  <p>Registered patients today</p>
+                </div>
+                <span class="DatePill">24 total</span>
+              </div>
+
+              <div class="GenderChart">
+                <div class="GenderBarChart">
+                  <canvas
+                    id="GenderChart"
+                    aria-label="Patient gender pie chart"
+                    role="img"
+                  ></canvas>
+                </div>
+                <div class="GenderStats">
+                  <div class="GenderRow">
+                    <span class="GenderColor male"></span>
+                    <span>Male</span>
+                    <strong>14</strong>
+                  </div>
+                  <div class="GenderMeter" aria-hidden="true">
+                    <span style="width: 58%"></span>
+                  </div>
+
+                  <div class="GenderRow">
+                    <span class="GenderColor female"></span>
+                    <span>Female</span>
+                    <strong>10</strong>
+                  </div>
+                  <div class="GenderMeter female" aria-hidden="true">
+                    <span style="width: 42%"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="PatientTrendGraph">
+            <div class="SectionHeader">
+              <div>
+                <h2>Patient Trend</h2>
+                <p>Patients handled by selected period</p>
+              </div>
+              <div class="TrendFilters" aria-label="Patient trend filters">
+                <button
+                  class="TrendFilter active"
+                  type="button"
+                  data-range="week"
+                >
+                  Week
+                </button>
+                <button class="TrendFilter" type="button" data-range="month">
+                  Month
+                </button>
+                <button class="TrendFilter" type="button" data-range="year">
+                  Year
+                </button>
+              </div>
+            </div>
+
+            <div class="TrendSummary">
+              <div>
+                <span class="TrendLabel">Total Patients</span>
+                <strong id="TrendTotal">0</strong>
+              </div>
+              <span id="TrendCaption">This week</span>
+            </div>
+
+            <div class="TrendChart">
+              <canvas
+                id="TrendChart"
+                aria-label="Patient trend bar graph"
+                role="img"
+              ></canvas>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Initialize Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../scripts/dashboard.js"></script>
+  </body>
+</html>

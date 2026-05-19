@@ -1,0 +1,1160 @@
+/* ==========================================================================
+   1. RESET & VARIABLE DEFINITIONS
+   ========================================================================== */
+:root {
+  /* Color Palette - Clinic Blue/Teal Theme */
+  --primary: #0f766e; /* Deep teal for branding & primary actions */
+  --primary-light: #f0fdfa; /* Soft teal background tint */
+  --accent: #2dd4bf; /* Bright teal for highlights/active links */
+  --text-main: #1f2937; /* Dark gray for excellent readability */
+  --text-muted: #6b7280; /* Soft gray for secondary text/labels */
+  --bg-main: #f8fafc; /* Main dashboard background color */
+  --bg-sidebar: #ffffff; /* Crisp white sidebar */
+  --border-color: #e2e8f0; /* Clean light gray borders */
+
+  /* Status Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  /* Typography & Spacing */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --sidebar-width: 260px;
+  --radius: 12px;
+  --transition: all 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. TWO-COLUMN LAYOUT
+   ========================================================================== */
+.DashboardLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.MainContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevents flex items from breaking layouts */
+}
+
+/* ==========================================================================
+   3. SIDEBAR NAVIGATION
+   ========================================================================== */
+.DashboardSidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.SidebarHeader {
+  margin-bottom: 2rem;
+}
+
+.Logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--primary);
+}
+
+.Logo h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.LogoIcon {
+  stroke-width: 2.5;
+  width: 24px;
+  height: 24px;
+}
+
+/* Account Widget */
+.AccountInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background-color: var(--primary-light);
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+}
+
+.Avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #cbd5e1;
+}
+
+.UserMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.UserName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.UserRole {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Menu Links */
+.DashboardMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.AddPatientButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  transition: var(--transition);
+  margin-bottom: 70px;
+  margin-top: 20px;
+}
+
+.AddPatientButton:hover {
+  background-color: #115e59;
+  transform: translateY(-1px);
+}
+
+.AddPatientButton i {
+  width: 18px;
+  height: 18px;
+}
+
+.MenuLink,
+.LogoutLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.MenuLink i,
+.LogoutLink i {
+  width: 18px;
+  height: 18px;
+}
+
+.MenuLink:hover {
+  background-color: #f1f5f9;
+  color: var(--text-main);
+}
+
+.MenuLink.active {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.SidebarFooter {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.LogoutLink:hover {
+  background-color: #fef2f2;
+  color: var(--danger);
+}
+
+.PageTitle {
+  color: var(--text-main);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.PageSubtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.SecondaryAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.SecondaryAction i {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
+   4. TOP DASHBOARD HEADER
+   ========================================================================== */
+.DashboardHeader {
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.DashboardHeader.PageHeader {
+  height: auto;
+  min-height: 86px;
+  padding: 1.25rem 2rem;
+}
+
+.HeaderSearch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f1f5f9;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  width: 300px;
+}
+
+.HeaderSearch i {
+  color: var(--text-muted);
+  width: 16px;
+  height: 16px;
+}
+
+.HeaderSearch input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.HeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.IconButton {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.IconButton:hover {
+  background-color: #f1f5f9;
+  color: var(--text-main);
+}
+
+.IconButton.bordered {
+  border: 1px solid var(--border-color);
+}
+
+.NotificationDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--danger);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 7px;
+  right: 8px;
+}
+
+.PrimaryButton {
+  border: none;
+  background-color: var(--primary);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.PrimaryButton:hover {
+  background-color: #115e59;
+}
+
+.PrimaryButton i {
+  width: 17px;
+  height: 17px;
+}
+
+/* ==========================================================================
+   5. MAIN VIEWS & CARDS GRID
+   ========================================================================== */
+.DashboardContent {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.WelcomeSection h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.WelcomeSection p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Stats Responsive Grid Layout */
+.StatsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(
+    4,
+    auto
+  ); /* Adjusts based on content to form a 4x grid */
+  gap: 1.5rem;
+}
+
+.GenderDistribution {
+  grid-column: span 2;
+  grid-row: span 2; /* Added spanning for height if it needs to be larger */
+}
+
+.StatCard {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.StatCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.StatIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.StatIcon i {
+  width: 22px;
+  height: 22px;
+}
+
+/* Dynamic colors for individual metric contexts */
+.appointments-icon {
+  background-color: #eff6ff;
+  color: #3b82f6;
+}
+.patients-icon {
+  background-color: #ecfdf5;
+  color: #10b981;
+}
+.operations-icon {
+  background-color: #fff7ed;
+  color: #f97316;
+}
+
+.StatData h3 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.StatValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+  margin: 0.2rem 0;
+}
+
+.StatTrend {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.StatTrend.up {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+.StatTrend.neutral {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.GenderDistribution {
+  grid-column: span 2;
+}
+
+.GenderDistribution,
+.WaitingPatients,
+.servingCard,
+.CompletedToday {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.WaitingPatients,
+.CompletedToday {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.WaitingPatients h3,
+.CompletedToday h3 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.SectionHeader.compact {
+  margin-bottom: 1rem;
+}
+
+.GenderChart {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.GenderBarChart {
+  width: 112px;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.GenderBarChart canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.GenderStats {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.GenderRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.GenderRow strong {
+  color: var(--text-main);
+}
+
+.GenderColor {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.GenderColor.male {
+  background-color: #2563eb;
+}
+
+.GenderColor.female {
+  background-color: #db2777;
+}
+
+.GenderMeter {
+  height: 8px;
+  background-color: #e0f2fe;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.GenderMeter span {
+  display: block;
+  height: 100%;
+  background-color: #2563eb;
+  border-radius: inherit;
+}
+
+.GenderMeter.female {
+  background-color: #fce7f3;
+}
+
+.GenderMeter.female span {
+  background-color: #db2777;
+}
+
+.MiniCardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.MiniCardIcon i {
+  width: 22px;
+  height: 22px;
+}
+
+.warning-icon {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.serving-icon {
+  background-color: #e0f2fe;
+  color: #0284c7;
+}
+
+.completed-icon {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.servingCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.MiniCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.MiniLabel {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.TicketNumber {
+  color: var(--primary);
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.servingCard p {
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.LiveBadge {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-radius: 999px;
+  padding: 0.28rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   6. DASHBOARD ANALYTICS & LISTS
+   ========================================================================== */
+.SectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.SectionHeader h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.SectionHeader p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.DatePill {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.QueuePanel,
+.AppointmentsPanel,
+.PatientTrendGraph {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.PatientTrendGraph {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.PatientForm {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 1040px;
+}
+
+.FormSection {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.FormSectionHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+}
+
+.FormSectionHeader i {
+  width: 22px;
+  height: 22px;
+  color: var(--primary);
+  flex: 0 0 auto;
+}
+
+.FormSectionHeader h2 {
+  color: var(--text-main);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.FormSectionHeader p {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  margin-top: 0.15rem;
+}
+
+.FormGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.FormField {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.FormField.span-2 {
+  grid-column: span 2;
+}
+
+.FormField label {
+  color: var(--text-main);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.FormField input,
+.FormField select,
+.FormField textarea {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: var(--text-main);
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 0.8rem 0.9rem;
+  transition: var(--transition);
+}
+
+.FormField textarea {
+  resize: vertical;
+}
+
+.FormField input:focus,
+.FormField select:focus,
+.FormField textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+  outline: none;
+}
+
+.FormActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.PrimaryButton,
+.SecondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  transition: var(--transition);
+}
+
+.PrimaryButton {
+  border: none;
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.PrimaryButton:hover {
+  background-color: #115e59;
+}
+
+.SecondaryButton {
+  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+  color: var(--text-main);
+}
+
+.SecondaryButton:hover {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+.PrimaryButton i,
+.SecondaryButton i {
+  width: 18px;
+  height: 18px;
+}
+
+.TrendFilters {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: #f1f5f9;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.25rem;
+}
+
+.TrendFilter {
+  border: none;
+  background-color: transparent;
+  color: var(--text-muted);
+  border-radius: 8px;
+  padding: 0.45rem 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.TrendFilter:hover {
+  color: var(--text-main);
+}
+
+.TrendFilter.active {
+  background-color: #ffffff;
+  color: var(--primary);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.TrendSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: var(--primary-light);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.TrendSummary div {
+  display: flex;
+  flex-direction: column;
+}
+
+.TrendLabel,
+#TrendCaption {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+#TrendTotal {
+  color: var(--primary);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.TrendChart {
+  height: 280px;
+  min-height: 260px;
+  position: relative;
+  padding-top: 0.5rem;
+}
+
+.TrendChart canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.ChartArea {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.DonutChart {
+  width: 180px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(#3b82f6 0 58%, #ec4899 58% 100%);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.DonutChart::before {
+  content: "";
+  width: 108px;
+  aspect-ratio: 1;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.DonutCenter {
+  position: relative;
+  z-index: 1;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.ChartLegend {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.LegendItem {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  background-color: #f8fafc;
+  border-radius: 10px;
+}
+
+.LegendItem strong,
+.QueueDetails strong,
+.AppointmentItem strong {
+  font-size: 0.92rem;
+  color: var(--text-main);
+}
+
+.LegendItem p,
+.QueueDetails p,
+.AppointmentItem p {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.LegendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.LegendColor.male {
+  background-color: #3b82f6;
+}
+
+.LegendColor.female {
+  background-color: #ec4899;
+}
+
+.DashboardGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.85fr);
+  gap: 1.5rem;
+}
+
+.QueueList,
+.AppointmentList {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.QueueItem,
+.AppointmentItem {
+  display: grid;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f8fafc;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.QueueItem {
+  grid-template-columns: auto 1fr auto;
+}
+
+.QueueItem.active {
+  background-color: var(--primary-light);
+  border-color: #99f6e4;
+}
+
+.QueueNumber {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  border: 1px solid var(--border-color);
+}
+
+.StatusBadge {
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.StatusBadge.in-progress {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.StatusBadge.waiting {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.AppointmentItem {
+  grid-template-columns: 74px 1fr;
+}
+
+.AppointmentTime {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.86rem;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 768px) {
+  .DashboardLayout {
+    flex-direction: column;
+  }
+
+  .DashboardSidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 1rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .AccountInfo,
+  .SidebarFooter {
+    display: none; /* Hide profile and logout on compact mobile views, or relocate to header */
+  }
+
+  .DashboardMenu {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .AddPatientButton,
+  .MenuLink {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .DashboardHeader {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .DashboardHeader.PageHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 92px;
+  }
+
+  .HeaderSearch {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+  }
+
+  .DashboardContent {
+    padding: 1rem;
+  }
+
+  .FormGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .FormField.span-2 {
+    grid-column: span 1;
+  }
+
+  .FormActions {
+    flex-direction: column-reverse;
+  }
+
+  .PrimaryButton,
+  .SecondaryButton {
+    width: 100%;
+  }
+
+  .SectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ChartArea,
+  .DashboardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .GenderDistribution {
+    grid-column: span 1;
+  }
+
+  .GenderChart {
+    grid-template-columns: 1fr;
+  }
+
+  .GenderBarChart {
+    justify-self: center;
+  }
+
+  .TrendFilters {
+    width: 100%;
+  }
+
+  .TrendFilter {
+    flex: 1;
+  }
+
+  .TrendSummary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .TrendChart {
+    height: 240px;
+    min-height: 240px;
+  }
+
+  .DonutChart {
+    justify-self: center;
+  }
+
+  .QueueItem {
+    grid-template-columns: auto 1fr;
+  }
+
+  .QueueItem .StatusBadge {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .AppointmentItem {
+    grid-template-columns: 68px 1fr;
+  }
+}
